@@ -1,5 +1,5 @@
 # software-construction
-Here’s the **straight-up, no BS engineering answer** to both questions.
+
 
 ---
 
