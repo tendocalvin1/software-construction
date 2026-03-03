@@ -9,10 +9,10 @@ Netflix didn’t adopt microservices because it was cool — it *had to* if it w
 
 Here are the core ways Netflix uses microservices:
 
-**🔹 Independent Functionality per Service**
+** (i) Independent Functionality per Service**
 Netflix splits major components — like **user accounts, billing, recommendations, playback/streaming logic, content catalog, and analytics** — into separate services. Each one can be built, deployed, scaled, or fixed without touching the rest of the system. ([Design Gurus][1])
 
-**🔹 Scalability Where It Matters**
+** (ii) Scalability Where It Matters**
 Different parts of Netflix have wildly different load patterns. For example:
 
 * *Playback* is extremely heavy during peak hours
@@ -20,10 +20,10 @@ Different parts of Netflix have wildly different load patterns. For example:
 
 Microservices lets Netflix scale just the parts under heavy demand instead of the entire system at huge cost. ([Design Gurus][1])
 
-**🔹 Fault Isolation and Resilience**
+** (iii) Fault Isolation and Resilience**
 If the recommendation service fails, users can still **search and play videos**. Netflix uses patterns like **circuit breakers** (e.g., Hystrix-like tools) and Chaos Engineering to ensure faults in one service don’t cascade across the platform. ([Howik][2])
 
-**🔹 Independent Deployment Velocity**
+** (iv)Independent Deployment Velocity**
 Engineering teams own their microservices end-to-end. This autonomy means:
 
 * They can deploy updates without packaging the whole platform
@@ -32,7 +32,7 @@ Engineering teams own their microservices end-to-end. This autonomy means:
 
 Different teams don’t step on each other’s toes — and Netflix deploys *thousands of times* per day because of this. ([Design Gurus][1])
 
-**🔹 Cloud First and Distributed**
+** (v) Cloud First and Distributed**
 Behind the scenes, Netflix runs on AWS with tools for service discovery (Eureka), API routing (Zuul/Envoy), orchestration (Conductor), observability, and fault tolerance — all glue that makes microservices manageable at massive scale. ([TechAhead][3])
 
 **In one line:** *Netflix uses microservices to scale globally, isolate failures, and release stuff without downtime — and they do it with hundreds to thousands of independent services talking to each other.* ([Design Gurus][1])
@@ -47,7 +47,7 @@ Here are two concrete examples backed by industry studies and case analyses:
 
 ---
 
-### **📌 Amazon Prime Video Monitoring Service**
+### ** (A) Amazon Prime Video Monitoring Service**
 
 Amazon Prime Video *actually rolled back* a portion of its distributed microservices (specifically their **monitoring service**) into a monolith.
 
@@ -61,7 +61,7 @@ Amazon Prime Video *actually rolled back* a portion of its distributed microserv
 
 ---
 
-### **📌 InVision**
+### ** (B) InVision**
 
 InVision originally migrated from a monolith to microservices as they grew. But over time, they *undid a lot of the microservices split* and merged services back into a monolithic codebase.
 
@@ -85,17 +85,14 @@ InVision originally migrated from a monolith to microservices as they grew. But 
 
 This reinforces that microservices always trade **infrastructure complexity + operational cost** for **modularity + scale** — and sometimes the cost isn’t worth it. ([IEEE Computer Society][6])
 
----
+| Field                | Details      |
+| -------------------- | ------------ |
+| **Name**             | Tendo Calvin |
+| **Registration No.** | S23B23/013   |
+| **Access No.**       | B24247       |
 
-## **Brutal Reality Check**
 
-* **Netflix pulled off microservices because they *had to* for scale and invested heavily in tooling.** Most companies do not need that level of complexity. ([Design Gurus][1])
-* **Microservices are not “always better.”** They introduce distributed systems issues (latency, debugging pain, operational cost, team coordination headaches). ([scisimple.com][7])
-* Reverting **doesn’t make you a failure — it means you overloaded the engineering cost bucket compared to business value.** ([svitla.com][8])
 
----
-
-If you want, I can break this down into architectural decision frameworks or how to decide when *you* should choose microservices vs monolith as an engineer/CTO — brutally practical, not academic.
 
 [1]: https://www.designgurus.io/answers/detail/does-netflix-use-microservices?utm_source=chatgpt.com "Does Netflix use microservices?"
 [2]: https://howik.com/netflix-microservices-architecture?utm_source=chatgpt.com "Netflix Microservices Architecture: The Inside Story - Howik"
